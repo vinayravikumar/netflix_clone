@@ -15,12 +15,12 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     google.accounts.id.initialize({
       client_id: "313331208405-okj0ubsknrcfpp037j024ml11d8j5fnn.apps.googleusercontent.com",
-      callback:(resp:any)=>{this.handleLoginin(resp)
+      callback:(resp:any)=>this.handleLogin(resp)
 
-      }
+
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"),{
-      theme:"filled blue",
+      theme:'filled blue',
       size:'large',
       shape:'rectangle',
       width:300
@@ -28,22 +28,21 @@ export class LoginComponent implements OnInit{
 
     }
   private decodeToken(token:string){
-    return JSON.parse(atob(token.split(".")[1]))
+    return JSON.parse(atob(token.split(".")[1]));
   }
 
+  handleLogin(response:any){
+    if (response){
+      const payLoad = this.decodeToken(response.credential);
 
-    handleLoginin(responce:any){
-      if (responce){
-        const payload = this.decodeToken(responce.credential)
+      sessionStorage.setItem("loggedInUser",JSON.stringify(payLoad));
 
-      sessionStorage.setItem("LoggedInuser",JSON.stringify(payload))
-
-      this.router.navigate(["browse"])
-
+      this.router.navigate(['browse'])
 
 
-      }
-  }
+
+    }
+}
 
 
 }
