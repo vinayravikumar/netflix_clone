@@ -1,2 +1,13 @@
 <app-header [userImg]="userProfileImg"/>
 <app-banner/>
+<app-movie-carousal [title]="'Popular on Netflix'" [videoContents]="movies" />
+
+<app-movie-carousal [title]="'Trending TV shows'" [videoContents]="tvShows" />
+
+<app-movie-carousal [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
+
+<app-movie-carousal [title]="'Popular Movies'" [videoContents]="popularMovies" />
+
+<app-movie-carousal [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" />
+
+<app-movie-carousal [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
