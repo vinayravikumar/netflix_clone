@@ -36,6 +36,7 @@ export class BrowseComponent implements OnInit {
   sources=[
     this.movieService.getMovies(),
     this.movieService.getTvShows(),
+    this.movieService.getRatedMovies(),
     this.movieService.getNowPlayingMovies(),
     this.movieService.getUpcomingMovies(),
     this.movieService.getPopularMovies(),
@@ -43,15 +44,17 @@ export class BrowseComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    console.log("my data",this.sources);
     forkJoin(this.sources)
     .pipe(
-      map(([movies,tvShows,nowPlaying,popular,topRated])=>{
-        return{movies,tvShows,nowPlaying,popular,topRated}
+      map(([movies,tvShows,ratedMovies,nowPlaying,popular,topRated])=>{
+        return{movies,tvShows,ratedMovies,nowPlaying,popular,topRated}
 
       })
     ).subscribe((res:any)=>{
       this.movies=res.movies.results as IVideoContent[];
       this.tvShows=res.tvShows.results as IVideoContent[];
+      this.ratedMovies = res.ratedMovies.results as IVideoContent[];
       this.nowPlayingMovies = res.nowPlaying.results as IVideoContent[];
       this.upcomingMovies = res.upcoming.results as IVideoContent[];
       this.popularMovies = res.popular.results as IVideoContent[];
@@ -66,7 +69,3 @@ export class BrowseComponent implements OnInit {
   }
 
   }
-
-
-
-

@@ -27,7 +27,9 @@ export class MovieService {
   getTvShows() {
     return this.http.get('https://api.themoviedb.org/3/discover/tv', options)
   }
-
+  getRatedMovies() {
+    return this.http.get('https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies', options)
+  }
 
   getBannerImage(id: number) {
     return this.http.get(`https://api.themoviedb.org/3/movie/${id}/images`, options)
@@ -46,13 +48,12 @@ export class MovieService {
   }
 
   getPopularMovies() {
-    return this.http.get(
-      'https://api.themoviedb.org/3/movie/popular', options)
+    return this.http.get('https://api.themoviedb.org/3/movie/popular', options)
   }
 
   getTopRated() {
-    return this.http.get(
-      'https://api.themoviedb.org/3/movie/top_rated', options)
+    return this.http.get('https://api.themoviedb.org/3/movie/top_rated',options)
+
   }
 
   getUpcomingMovies() {
