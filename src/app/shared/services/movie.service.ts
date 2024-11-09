@@ -28,7 +28,7 @@ export class MovieService {
     return this.http.get('https://api.themoviedb.org/3/discover/tv', options)
   }
   getRatedMovies() {
-    return this.http.get('https://api.themoviedb.org/3/guest_session/guest_session_id/rated/movies', options)
+    return this.http.get('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200', options)
   }
 
   getBannerImage(id: number) {

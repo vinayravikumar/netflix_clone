@@ -1,9 +1,9 @@
-<iframe class="w-full h-full absolute" src="https://www.youtube.com/embed/g79CvhHaj5I?autoplay=1&mute=1&loop=1&controls=0" frameborder="0"></iframe>
+<iframe class="w-full h-full absolute" [src]="videoUrl" frameborder="0"></iframe>
 
 <div class="h-screen bg-white">
   <div class="pt-[15%] px-24 absolute h-full text-white bg-gradient-to-r from-black">
-    <h1 class="text-6xl font-bold">Kaithi</h1>
-    <p class="inline-block py-6 text-xl w-1/4 flex-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deserunt a delectus quasi suscipit, voluptates sit in. Praesentium, mollitia optio! Magni explicabo sint omnis modi illo voluptatum consequatur magnam facere.</p>
+    <h1 class="text-6xl font-bold">{{bannerTitle}}</h1>
+    <p class="inline-block py-6 text-xl w-1/4 flex-wrap">{{bannerOverview | overview:205}}</p>
 
   <div>
 
