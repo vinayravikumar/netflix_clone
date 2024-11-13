@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { AuthService } from '../../../shared/services/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,7 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   navList=["Home","TV Shows","News & Popular","My List","Browse by Language"]
   @Input({required:true}) userImg:string='';
+  auth = inject(AuthService);
   username = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
 
 
